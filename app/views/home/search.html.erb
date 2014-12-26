@@ -1,0 +1,32 @@
+
+<div style='width: 100%;'>
+  <div id="map" style='width: 100%; height: 600px;'></div>
+</div>
+<script>
+var appartments=<%=raw @appartments%>
+var coordinates=<%= raw @coordinates%>
+handler = Gmaps.build('Google');
+
+
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+var marker_array=[]
+    for(var i=0;i<appartments.length;i++){
+    marker_array.push({
+      "lat": appartments[i][0],
+      "lng": appartments[i][1],
+      "infowindow": "hello!"
+    })
+}
+  markers = handler.addMarkers(
+  marker_array
+  );
+
+  circles = handler.addCircles(
+    [{ lat: coordinates[0], lng: coordinates[1], radius: 5000 }],
+    { strokeColor: '#FF00FF'}
+  );
+  handler.bounds.extendWith(circles);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

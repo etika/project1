@@ -1,0 +1,33 @@
+<%= form_for(@appartment) do |f| %>
+  <% if @appartment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appartment.errors.count, "error") %> prohibited this appartment from being saved:</h2>
+
+      <ul>
+      <% @appartment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :house_type %><br>
+    <%= f.text_field :house_type %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :rent %><br>
+    <%= f.number_field :rent %>
+  </div>
+  <div class="field">
+  <%=f.label :photo%>
+  <%= f.file_field :photo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

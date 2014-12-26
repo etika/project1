@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  house_type: MyString
+  location: MyString
+  rent: 1
+
+two:
+  house_type: MyString
+  location: MyString
+  rent: 1

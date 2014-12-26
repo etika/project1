@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>House type:</strong>
+  <%= @appartment.house_type %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @appartment.location %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  <%= @appartment.rent %>
+</p>
+<p>
+<strong>Photo</strong>
+<%=image_tag @appartment.photo.url(:thumb)%>
+</p>
+
+<%= link_to 'Edit', edit_appartment_path(@appartment) %> |
+<%= link_to 'Back', appartments_path %>
